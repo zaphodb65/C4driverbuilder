@@ -1,4 +1,6 @@
 """
+Initially published on github on March 9, 2021
+
 This python program will allow you to use a custom icon in the Control4 Scenario Experience Button.
 It does this by taking the original driver with plain buttons and replaces the image files used
 for the icons.
@@ -84,7 +86,7 @@ def parse_xml_file(file_name,drivername): #probably can cut this down to one lin
 
 if len(sys.argv) <2:
     print ()
-    sys.exit("Terminating as no filename provided for image file please provide an image name as an argument")
+    sys.exit("Terminating as no filename provided for image file please provide an image name as an argument.")
 
 # Define constants
 orig_driver_name = "experience-button-scenario.c4z" #This file must exist in the base folder
@@ -101,7 +103,7 @@ current_time = now.strftime("%m/%d/%Y %H:%M")
 logger.info("Started running at: "+current_time+"\n")
 
 if not(os.path.exists(orig_driver_name)) :
-    sys.exit("Terminating as there is no file called experience-button-scenario.c4z in current directory")
+    sys.exit("Terminating as there is no file called experience-button-scenario.c4z in current directory.")
 
 if not(os.path.exists(base_selected_file)): #Look to see if there is a selected file
     base_selected_file=orig_image_file #If there isn't then just use the default file
