@@ -61,6 +61,7 @@ def make_image_files(infile,outfileprefix):
                     new_image.save(outfile, "png")
                 except OSError:
                     print("cannot create resized image for", infile)
+                    logger.error("cannot create resized image for"+ infile)
   
 def parse_xml_file(file_name,drivername): #probably can cut this down to one line and not bother with a function
     now = datetime.now()
