@@ -48,7 +48,7 @@ import logging
 
 def make_image_files(infile,outfileprefix):
     im=Image.open(infile) #maybe check for valid filename
-    logger.info ("Using image file: "+infile+" Image format is:"+im.format+" Size is:"+str(im.size))
+    logger.info ("Using image file: "+infile+" - image format is: "+im.format+", size is:"+str(im.size))
     sizelist=[16, 32, 70, 90, 300, 512, 1024] #sizes in pixels
     for sz in sizelist:
         size=(sz,sz)
@@ -83,6 +83,10 @@ def parse_xml_file(file_name,drivername): #probably can cut this down to one lin
     fin.write(data) #write updated xml file
     fin.close()
 
+if len(sys.argv) <2:
+    print ()
+    sys.exit("Terminating as no filename provided for image file please provide an image name as an argument")
+
 # Define constants
 orig_driver_name = "experience-button-scenario.c4z" #This file must exist in the base folder
 outdir="tempdir" #Temporary folder to hold unzipped original C4Z file and image files.
@@ -93,8 +97,12 @@ base_selected_file=drivername+"_selected.png" #This is the provided selected fil
 
 logging.basicConfig(filename=drivername+'.log',filemode='w', level=logging.INFO,format='%(message)s') #set up logging
 logger=logging.getLogger()
+now = datetime.now()
+current_time = now.strftime("%m/%d/%Y %H:%M")
+logger.info("Started running at: "+current_time+"\n")
 
-logger.info("Checking for original driver file "+orig_driver_name+": "+str(os.path.exists(orig_driver_name)))
+if not(os.path.exists(orig_driver_name)) :
+    sys.exit("Terminating as there is no file called experience-button-scenario.c4z in current directory")
 
 if not(os.path.exists(base_selected_file)): #Look to see if there is a selected file
     base_selected_file=orig_image_file #If there isn't then just use the default file
