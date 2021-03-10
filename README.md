@@ -1,7 +1,7 @@
 # C4driverbuilder
 This python program will allow you to use a custom icon in the Control4 Scenario Experience Button.
 It does this by taking the original driver with plain buttons and replaces the image files used
-for the icons.
+for the icons. It also makes minor changes to the XML file.
 
 Pre-requisites:  Python3, an image file and the Control4 experience-button-scenario.c4z driver.
 You must also have the package pillow installed.  If you get an error saying:
