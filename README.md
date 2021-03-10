@@ -29,6 +29,6 @@ For more info on how to alter a driver to  use your own custom icons see the fol
 video: https://www.youtube.com/watch?v=wW-eOh3sWFM&t=95s
 
 Recommendations: - Your icon will look best if you do some preparation. Try to find a file with a transparent 
-background. Use image editing software (I use paint.net which is free) to make this file square. If your image
-file is smaller than 1024x1024 then it will have to be stretched and may not look very good. You can also make
+background. Use image editing software (I use paint.net https://www.getpaint.net/download.html which is free) to make this file 
+square. If your image file is smaller than 1024x1024 then it will have to be stretched and may not look very good. You can also make
 a selected icon.  This is the icon that will appear after you push the custom experience button.
