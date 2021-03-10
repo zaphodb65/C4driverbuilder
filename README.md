@@ -4,7 +4,8 @@ It does this by taking the original driver with plain buttons and replaces the i
 for the icons.
 
 Pre-requisites:  Python3, an image file and the Control4 experience-button-scenario.c4z driver.
-You must also have the package pillow installed.  If you get an error saying ModuleNotFoundError: No module named 'PIL'
+You must also have the package pillow installed.  If you get an error saying:
+"ModuleNotFoundError: No module named 'PIL'"
 then from the command line type python3 -m pip install pillow
 
 I have tried this on Windows 10, Linux and Ubuntu on Win10 using WSL2. I think it should work on a Mac as well.
