@@ -4,6 +4,9 @@ It does this by taking the original driver with plain buttons and replaces the i
 for the icons.
 
 Pre-requisites:  Python3, an image file and the Control4 experience-button-scenario.c4z driver.
+You must also have the package pillow installed.  If you get an error saying ModuleNotFoundError: No module named 'PIL'
+then from the command line type python3 -m pip install pillow
+
 I have tried this on Windows 10, Linux and Ubuntu on Win10 using SFU. I think it should work on a Mac as well.
 The driver can be downloaded from http://drivers.control4.com/experience-button-scenario.c4z
 
@@ -29,10 +32,6 @@ Recommendations: - Your icon will look best if you do some preparation. Try to f
 background. Use image editing software (I use paint.net which is free) to make this file square. If your image
 file is smaller than 1024x1024 then it will have to be stretched and may not look very good. You can also make
 a selected icon.  This is the icon that will appear after you push the custom experience button.
-
-
-
-
 
 """
 
@@ -106,7 +105,7 @@ if not(os.path.exists(orig_driver_name)) :
 
 if not(os.path.exists(base_selected_file)): #Look to see if there is a selected file
     base_selected_file=orig_image_file #If there isn't then just use the default file
-    logger.info ("No selected image file so using the same imege file for both default and selected")
+    logger.info ("No selected image file so using the same image file for both default and selected")
 xml_file_name=os.path.join(outdir,"driver.xml") #This is the driver file with xml code - it will be slightly altered
 Path(image_path).mkdir(parents=True, exist_ok=True) #Create the temporaty folder for the icon files
 defaultimagepath=os.path.join(image_path,"default") #path name for selected icon images
