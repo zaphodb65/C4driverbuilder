@@ -50,7 +50,7 @@ import logging
 def make_image_files(infile,outfileprefix):
     im=Image.open(infile) #maybe check for valid filename
     logger.info ("Using image file: "+infile+" - image format is: "+im.format+", size is:"+str(im.size))
-    sizelist=[16, 32, 70, 90, 300, 512, 1024] #sizes in pixels
+    sizelist=[16, 32, 70, 90, 300, 512, 1024] #sizes in pixels of image files to be created
     for sz in sizelist:
         size=(sz,sz)
         outfile=outfileprefix+"_"+str(sz)+".png"  #outfileprefix will be default or selected
@@ -100,7 +100,7 @@ logging.basicConfig(filename=drivername+'.log',filemode='w', level=logging.INFO,
 logger=logging.getLogger()
 now = datetime.now()
 current_time = now.strftime("%m/%d/%Y %H:%M")
-logger.info("Started running at: "+current_time+"\n")
+logger.info("Started running script at: "+current_time+"\n")
 
 if not(os.path.exists(orig_driver_name)) :
     sys.exit("Terminating as there is no file called experience-button-scenario.c4z in current directory.")
@@ -113,11 +113,8 @@ Path(image_path).mkdir(parents=True, exist_ok=True) #Create the temporaty folder
 defaultimagepath=os.path.join(image_path,"default") #path name for selected icon images
 selectedimagepath=os.path.join(image_path,"selected") #path name for default icon images
 
-
-
 make_image_files(orig_image_file,defaultimagepath)  #Make all of the default files
 make_image_files(base_selected_file,selectedimagepath)  #Make all of the selected files
-
 
 zipfile.ZipFile(orig_driver_name).extractall(path=outdir)  #extracts driver file to the path given
 parse_xml_file(xml_file_name,drivername) #parses xml to change icon names for buttons and xml parameters - name, created and modified
@@ -136,7 +133,4 @@ shutil.make_archive(drivername,"zip",os.path.join(os.getcwd(),outdir))  #Make th
 shutil.rmtree(outdir) #remove the folder for the resized image files
 shutil.move(drivername+".zip",drivername+".c4z") #Change extension to c4z
 
-#check for valid image file
-# read in argument(s) look for selected file as well
-# make inverted file
 
